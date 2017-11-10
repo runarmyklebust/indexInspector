@@ -1,0 +1,43 @@
+<body>
+<div>
+    <link rel="stylesheet" href="../../../assets/css/main.css"
+          data-th-href="${portal.assetUrl({'_path=css/main.css'})}"
+          type="text/css" media="all"/>
+    <style data-th-if="${css}" data-th-text="${css}"></style>
+
+    <!-- JQuery -->
+    <script data-th-src="${portal.assetUrl({'_path=js/jquery-3.1.1.min.js'})}"></script>
+
+    <!-- DataTables -->
+    <script data-th-src="${portal.assetUrl({'_path=js/jquery.dataTables.min.js'})}"></script>
+    <link rel="stylesheet" data-th-href="${portal.assetUrl({'_path=css/jquery.dataTables.min.css'})}"></link>
+
+
+    <div class="resultWrapper" id="resultWrapper">
+        <div class="resultTab" id="resultTab">
+            <table id='resultTable' class='table display compact'>
+                <thead>
+                <th>path</th>
+                <th>enabled</th>
+                <th>fulltext</th>
+                <th>alltext</th>
+                <th>processor</th>
+                <th>value</th>
+                </thead>
+                <tbody id="issuesTableData">
+                <tr data-th-each="item : ${indexConfig}">
+                    <td class='propertyPath dt-nowrap' data-th-text="${item.key}"></td>
+                    <td class="enabled" data-th-text="${item.value.enabled}"></td>
+                    <td class="fulltext" data-th-text="${item.value.fulltext}"></td>
+                    <td class="alltext" data-th-text="${item.value.alltext}"></td>
+                    <td class="processors" data-th-text="${not #lists.isEmpty(item.value.processors) ? item.value.processors : ''}"></td>
+                    <td class="itemValue" data-th-text="${item.value.value}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+
+<script data-th-src="${portal.assetUrl({'_path=js/main.js'})}"></script>

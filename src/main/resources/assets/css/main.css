@@ -1,0 +1,10 @@
+.resultWrapper {
+    max-width: 100%;
+}
+
+.resultWrapper table tbody td.propertyPath, td.itemValue {
+    font-size: 0.9em;
+}
+
+.resultWrapper table tbody td.enabled, td.alltext, td.fulltext {
+}
